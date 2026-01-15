@@ -205,26 +205,30 @@ img {
         padding: 0 1rem;
     }
 
-    /* Stack Navigation */
+    /* Horizontal Navigation on Mobile */
     nav ul {
-        flex-direction: column;
+        flex-direction: row;
+        /* Keep horizontal */
+        flex-wrap: wrap;
+        /* Allow wrapping if needed */
+        justify-content: center;
         gap: 0.5rem;
-        width: 100%;
-        text-align: center;
+        /* Reduce gap */
     }
 
     nav a {
-        display: block;
-        padding: 0.8rem;
-        background-color: #f9f9f9;
-        /* Slight background for touch targets */
-        border-radius: var(--border-radius);
+        display: inline-block;
+        padding: 0.5rem 0.8rem;
+        /* Smaller padding */
+        font-size: 0.9rem;
+        /* Slightly smaller text */
+        background-color: transparent;
+        /* Remove blocky background */
     }
 
     nav a:hover {
-        background-color: #e0e0e0;
-        transform: translateY(0);
-        /* Disable lift on mobile touch */
+        background-color: transparent;
+        color: var(--secondary-color);
     }
 
     main {
@@ -235,6 +239,7 @@ img {
         padding: 1.5rem;
     }
 }
+
 /* Day 5 Additions */
 
 /* Form Styling */
@@ -252,7 +257,8 @@ label {
     margin-bottom: 0.5rem;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
     padding: 0.8rem;
     border: 1px solid #ccc;
@@ -261,7 +267,8 @@ input, textarea {
     transition: border-color var(--transition-speed);
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     border-color: var(--primary-color);
     outline: none;
 }
@@ -284,7 +291,7 @@ input:focus, textarea:focus {
 
 .gallery-grid img:hover {
     transform: scale(1.03);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Logo Styling */
