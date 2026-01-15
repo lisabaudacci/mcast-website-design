@@ -199,31 +199,37 @@ img {
 
 /* Media Queries for Responsiveness */
 @media screen and (max-width: 768px) {
+
+    /* Tight Horizontal Navigation on Mobile */
     header .container {
         flex-direction: column;
         gap: 1rem;
-        padding: 0 1rem;
+        padding: 0 0.5rem;
+        /* Maximize available width */
     }
 
     /* Horizontal Navigation on Mobile */
     nav ul {
         flex-direction: row;
-        /* Keep horizontal */
-        flex-wrap: wrap;
-        /* Allow wrapping if needed */
-        justify-content: center;
-        gap: 0.5rem;
-        /* Reduce gap */
+        flex-wrap: nowrap;
+        /* Force single line */
+        justify-content: space-between;
+        /* Distribute evenly or use center with small gap */
+        gap: 0.2rem;
+        /* Minimal gap */
+        width: 100%;
+        /* Use full width */
     }
 
     nav a {
         display: inline-block;
-        padding: 0.5rem 0.8rem;
-        /* Smaller padding */
-        font-size: 0.9rem;
-        /* Slightly smaller text */
+        padding: 0.5rem 0.3rem;
+        /* Very tight padding */
+        font-size: 0.75rem;
+        /* Smaller font to ensure fit */
         background-color: transparent;
-        /* Remove blocky background */
+        white-space: nowrap;
+        /* Prevent individual word wrapping */
     }
 
     nav a:hover {
