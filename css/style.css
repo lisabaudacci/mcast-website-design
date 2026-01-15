@@ -1,4 +1,24 @@
-/* Basic reset and styles */
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* CSS Variables */
+:root {
+    --primary-color: #000043;
+    /* MCAST Navy Blue */
+    --secondary-color: #757575;
+    /* MCAST Grey */
+    --accent-color: #FFFFFF;
+    /* White */
+    --bg-color: #F4F6F8;
+    /* Light Grey Background for smooth contrast */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --max-width: 1200px;
+    --border-radius: 6px;
+    --transition-speed: 0.3s;
+}
+
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,17 +26,143 @@
 }
 
 body {
-    font-family: sans-serif;
+    font-family: var(--font-body);
+    color: #333;
+    background-color: var(--bg-color);
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-header, footer {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    text-align: center;
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 700;
 }
 
+p {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-speed);
+}
+
+/* Flexbox Layout Structure */
+
+/* Header */
+header {
+    background-color: var(--accent-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container,
+header> :not(.container) {
+    /* Fallback if no container class yet */
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Fallback for direct children if not wrapped in container */
+header h1 {
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* Main Content */
 main {
+    flex: 1;
+    /* Pushes footer down */
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+section {
+    background-color: var(--accent-color);
     padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: auto;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+/* Fluid Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius);
+}
+
+/* Utility Classes */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    transition: background-color var(--transition-speed);
+}
+
+.btn:hover {
+    background-color: #000066;
+    /* Slightly lighter navy */
 }
